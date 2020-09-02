@@ -8,8 +8,8 @@ public class Board {
 	public static final int PART3 = 2;
 	public static final int PART4 = 3;
 
-	String boardName;
-	Shape[] figures = new Shape[4];
+	private String boardName;
+	private Shape[] figures = new Shape[4];
 
 	public Board() {
 		super();
@@ -21,11 +21,12 @@ public class Board {
 	}
 
 	public void putFigure(Shape figure, int part) {
+		
 		if (figures[part] == null) {
 			figures[part] = figure;
 			System.out.println(figure + " added to " + getBoardName() + " " + (part + 1) + "!");
 		} else {
-			System.out.println(getBoardName() + PART1 + " has no space, delete figure first!");
+			System.out.println(getBoardName() + (part + 1) + " has no space, delete figure first!");
 		}
 	}
 
@@ -34,27 +35,42 @@ public class Board {
 			figures[part] = null;
 			System.out.println(figure + " deleted from " + getBoardName() + " part " + (part + 1) + "!");
 		} else {
-			System.out.println(getBoardName() + " " + part + " wrong figure or part is empthy!");
+			System.out.println(getBoardName() + " " + (part + 1) + " wrong figure or part is empthy!");
 		}
 	}
-
-	public void getFiguresFromBoard() {
-		System.out.println(getBoardName() + " containes figures: ");
+	
+	public double getShapesArea() {
+		
 		double area = 0;
-		int part = 0;
+		
 		for (Shape figure : figures) {
 			if (figure != null) {
-				System.out.println(figure + " on Board part " + (++part));
+				
 				area += figure.getArea();
 
 			}
 		}
-		if (area == 0) {
+		
+		return area;
+		
+	}
+
+	public void getFiguresFromBoard() {
+		if (getShapesArea() == 0) {
 			System.out.println("No figures on the board");
 			return;
 		}
 
-		System.out.println("Area of figures on board is " + area);
+		System.out.println(getBoardName() + " containes figures: ");
+		
+		int part = 0;
+		for (Shape figure : figures) {
+			if (figure != null) {
+				System.out.println(figure + " on Board part " + (++part));
+
+			}
+		}
+		System.out.println("Area of figures on board is " + getShapesArea());
 	}
 
 	public String getBoardName() {
