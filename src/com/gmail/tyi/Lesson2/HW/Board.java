@@ -22,20 +22,28 @@ public class Board {
 
 	public void putFigure(Shape figure, int part) {
 		
-		if (figures[part] == null) {
-			figures[part] = figure;
-			System.out.println(figure + " added to " + getBoardName() + " " + (part + 1) + "!");
+		if (part <= PART4 && part >= PART1 ) {
+			if (figures[part] == null) {
+				figures[part] = figure;
+				System.out.println(figure + " added to " + getBoardName() + " " + (part + 1) + "!");
+			} else {
+				System.out.println(getBoardName() + (part + 1) + " has no space, delete figure first!");
+			}
 		} else {
-			System.out.println(getBoardName() + (part + 1) + " has no space, delete figure first!");
+			System.out.println("Wrong part!!!");
 		}
 	}
 
 	public void deleteFigure(Shape figure, int part) {
-		if (figures[part].equals(figure)) {
-			figures[part] = null;
-			System.out.println(figure + " deleted from " + getBoardName() + " part " + (part + 1) + "!");
+		if (part <= PART4 && part >= PART1) {
+			if (figures[part].equals(figure)) {
+				figures[part] = null;
+				System.out.println(figure + " deleted from " + getBoardName() + " part " + (part + 1) + "!");
+			} else {
+				System.out.println(getBoardName() + " " + (part + 1) + " wrong figure or part is empthy!");
+			}
 		} else {
-			System.out.println(getBoardName() + " " + (part + 1) + " wrong figure or part is empthy!");
+			System.out.println("Wrong part!!!");
 		}
 	}
 	
