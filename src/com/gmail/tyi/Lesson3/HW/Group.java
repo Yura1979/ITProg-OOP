@@ -1,6 +1,5 @@
 package com.gmail.tyi.Lesson3.HW;
 
-import java.util.Arrays;
 
 public class Group {
 	private String name;
@@ -15,10 +14,22 @@ public class Group {
 		super();
 	}
 
+	private boolean findStudent(Student student) {
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] == null) {
+				continue;
+			}
+			if (students[i].equals(student)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void addStudent(Student student) throws GroupFullException {
 		int i;
-		if (findStudent(student.getSurname()) > -1) {
-			System.out.println("Student already exist");
+		if (findStudent(student)) {
+			System.out.println(student + "Student already exist");
 			return;
 		}
 		for (i = 0; i < students.length; i++) {
@@ -44,22 +55,26 @@ public class Group {
 		}
 	}
 
-	public void deleteStudentBySurname(String surname) {
-		int index = findStudent(surname);
-		if (index > -1) {
-			students[index] = null;
+	public void deleteStudentByID(int id) {
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] == null) {
+				continue;
+			}
+			if (students[i].getRecordBookNum() == id) {
+				students[i] = null;
+			}
 		}
 	}
 
-	public int findStudent(String surname) {
+	public Student findStudent(String surname) {
 		for (int i = 0; i < students.length; i++) {
 			if (students[i] != null && students[i].getSurname().equals(surname)) {
-				
-				return i;
+
+				return students[i];
 			}
 		}
-		
-		return -1;
+
+		return null;
 
 	}
 
@@ -84,8 +99,19 @@ public class Group {
 	@Override
 	public String toString() {
 		sortStudents();
-
-		return "Group [name=" + name + ", students=" + Arrays.toString(students) + "]";
+		
+		StringBuilder sb = new StringBuilder("Group [name=" + name + ", students=");
+		
+		for (int i = 0; i < students.length; i++) {
+			if (students[i] == null) {
+				continue;
+			}
+			sb.append(students[i].toString() + ", ");
+		}
+		sb.setLength(sb.length() - 2);
+		sb.append("]");
+		
+		return sb.toString();
 	}
 
 	public String getName() {

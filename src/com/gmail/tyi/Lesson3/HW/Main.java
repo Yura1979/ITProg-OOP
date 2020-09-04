@@ -25,6 +25,7 @@ public class Main {
 			group.addStudent(st3);
 			group.addStudent(st4);
 			group.addStudent(st5);
+			group.addStudent(st5);
 			group.addStudent(st6);
 			group.addStudent(st7);
 			group.addStudent(st8);
@@ -37,10 +38,10 @@ public class Main {
 		}
 		
 		System.out.println(group);
-		group.findStudent("Arikova");
-		group.deleteStudent(st2);
+		System.out.println(group.findStudent("Arikova"));
+		group.deleteStudentByID(st2.getRecordBookNum());
 		System.out.println(group);
-		group.findStudent("Arikova");
+		
 		
 		
 		

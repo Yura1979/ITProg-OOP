@@ -33,7 +33,7 @@ public class Student extends Human {
 
 	@Override
 	public String toString() {
-		return super.toString() + " Record Book Number" + recordBookNum + " ]";
+		return super.toString() + " Record Book Number " + recordBookNum + " ]";
 	}
 
 	
