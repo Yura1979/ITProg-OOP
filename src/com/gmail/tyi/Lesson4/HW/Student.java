@@ -1,5 +1,6 @@
 package com.gmail.tyi.Lesson4.HW;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Student extends Human {
@@ -35,6 +36,33 @@ public class Student extends Human {
 	public String toString() {
 		return super.toString() + " Record Book Number " + recordBookNum + " ]";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(recordBookNum);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		//super.equals(obj);
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return recordBookNum == other.recordBookNum;
+	}
+	
+	
+
+	
+	
+	
 
 	
 
