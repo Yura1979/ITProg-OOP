@@ -2,7 +2,6 @@ package com.gmail.tyi.Lesson5.HW;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;

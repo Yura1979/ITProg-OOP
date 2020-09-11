@@ -19,7 +19,12 @@ public class FileOperation  {
 			File[] files = dir1.listFiles(pdfFileFilter);
 			for (File file : files) {
 				try {
-					FileCopy.fileCopy(file, dir2);
+					if (file.length() < 2_000_000_000) {
+						FileCopy.fileCopy(file, dir2);
+					} else {
+						FileCopy.fileCopy2(file, dir2);
+					}
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -27,7 +32,6 @@ public class FileOperation  {
 			}
 		}
 		
-
 	}
 
 }
