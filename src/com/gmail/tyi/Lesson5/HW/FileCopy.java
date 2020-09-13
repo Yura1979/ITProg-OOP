@@ -28,9 +28,10 @@ public class FileCopy {
 				OutputStream os = new BufferedOutputStream(
 						new FileOutputStream(file2.getAbsolutePath() + "\\" + file1.getName()))) {
 			byte[] buffer = new byte[1_000_000_000];
+			int numBytes = 0;
 			while (is.available() > 0) {
-				is.read(buffer);
-				os.write(buffer);
+				numBytes = is.read(buffer);
+				os.write(buffer, 0, numBytes);
 			}
 		} catch (Exception e) {
 			throw e;

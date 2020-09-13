@@ -13,10 +13,11 @@ public class FileOperation  {
 		File dir1 = new File("D:\\test\\dir1\\");
 		File dir2 = new File("D:\\test\\dir2\\");
 		
-		FileFilter pdfFileFilter = new PDFFileFilter();
+		//FileFilter pdfFileFilter = new PDFFileFilter();
+		FileFilter mkvFileFilter = new MKVFileFilter();
 		
 		if (dir1.isDirectory() && dir2.isDirectory()) {
-			File[] files = dir1.listFiles(pdfFileFilter);
+			File[] files = dir1.listFiles(mkvFileFilter);
 			for (File file : files) {
 				try {
 					if (file.length() < 2_000_000_000) {
