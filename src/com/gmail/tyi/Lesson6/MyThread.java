@@ -27,14 +27,14 @@ public class MyThread {
 		thread2.start();
 		thread3.start();
 		
-//		try {
-//			thread1.join();
-//			thread2.join();
-//			thread3.join();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			thread1.join();
+			thread2.join();
+			thread3.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		thread1.interrupt();
 		thread2.interrupt();
