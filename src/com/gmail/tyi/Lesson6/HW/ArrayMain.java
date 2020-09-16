@@ -25,7 +25,7 @@ public class ArrayMain {
 		startTime = System.currentTimeMillis();
 		System.out.println(calculateArraySumInThreads(parts, arrayLength, array1));
 		endTime = System.currentTimeMillis();
-		System.out.println("Total execution time: " + (endTime - startTime) + "ms");
+		System.out.println("Total execution time with Threads: " + (endTime - startTime) + "ms");
 		
 		
 		
