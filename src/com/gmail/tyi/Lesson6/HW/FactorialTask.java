@@ -39,13 +39,7 @@ public class FactorialTask implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		Thread thread = Thread.currentThread();
-		BigInteger f = new BigInteger("0");
-		
-		for (int i = 1; i <= number; i++) {
-			f = calculateFactorial(i);
-//			System.out.println(thread.getName() + " => " + i + "!= " + f);
-			factSum = factSum.add(f);
-		}
+		BigInteger f = calculateFactorial(number);
 		System.out.println(thread.getName() + " => " + number + "!= " + f);
 
 	}
