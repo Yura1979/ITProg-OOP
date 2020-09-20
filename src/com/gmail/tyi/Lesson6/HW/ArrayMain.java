@@ -11,6 +11,7 @@ public class ArrayMain {
 		long endTime = 0;
 
 		int arrayLength = 2_000_000;
+//		int arrayLength = 2_048;
 
 		int[] array1 = generateArray(arrayLength);
 
@@ -19,7 +20,7 @@ public class ArrayMain {
 		System.out.println(array1Sum.arraySum());
 		endTime = System.currentTimeMillis();
 		System.out.println("Total execution time: " + (endTime - startTime) + "ms");
-
+		
 //		Arrays.copyOfRange(original, from, to);
 		int parts = 32;
 		startTime = System.currentTimeMillis();
@@ -42,7 +43,7 @@ public class ArrayMain {
 		int to = arrayPart;
 		
 		for (int i = 0; i < threads.length; i++) {
-			arraySumPart[i] = new ArraySum(Arrays.copyOfRange(array, from, to));
+			arraySumPart[i] = new ArraySum(array, from, to);
 			threads[i] = new Thread(arraySumPart[i]); 
 			from += arrayPart;
 			to += arrayPart;
