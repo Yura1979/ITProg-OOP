@@ -14,7 +14,7 @@ public class ArrayMain {
 		
 
 //		int arrayLength = 2_000_000;
-		int arrayLength = 75_000_000;
+		int arrayLength = 50_000_000;
 		
 		startTime = System.currentTimeMillis();
 		int[] array1 = generateArray(arrayLength);
@@ -28,7 +28,7 @@ public class ArrayMain {
 		System.out.println("Total execution time: " + (endTime - startTime) + "ms");
 		
 //		Arrays.copyOfRange(original, from, to);
-		int parts = 32;
+		int parts = 4;
 		startTime = System.currentTimeMillis();
 		System.out.println(calculateArraySumInThreads(parts, arrayLength, array1));
 		endTime = System.currentTimeMillis();
