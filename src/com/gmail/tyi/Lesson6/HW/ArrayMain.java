@@ -9,13 +9,19 @@ public class ArrayMain {
 		// TODO Auto-generated method stub
 		long startTime = 0;
 		long endTime = 0;
+		
+		
+		
 
-		int arrayLength = 2_000_000;
-//		int arrayLength = 2_048;
-
-		int[] array1 = generateArray(arrayLength);
-
+//		int arrayLength = 2_000_000;
+		int arrayLength = 75_000_000;
+		
 		startTime = System.currentTimeMillis();
+		int[] array1 = generateArray(arrayLength);
+		endTime = System.currentTimeMillis();
+		System.out.println("Array generation time: " + (endTime - startTime) / 1000 + "seconds");
+		
+		startTime = System.currentTimeMillis();	
 		ArraySum array1Sum = new ArraySum(array1);
 		System.out.println(array1Sum.arraySum());
 		endTime = System.currentTimeMillis();
@@ -27,7 +33,6 @@ public class ArrayMain {
 		System.out.println(calculateArraySumInThreads(parts, arrayLength, array1));
 		endTime = System.currentTimeMillis();
 		System.out.println("Total execution time with Threads: " + (endTime - startTime) + "ms");
-		
 		
 		
 	}
