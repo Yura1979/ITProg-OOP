@@ -15,7 +15,6 @@ public class BlackList {
 	
 	public boolean isInBlackList(Object obj) {
 		String str = obj.getClass().getSimpleName();
-		System.out.println(str);
 		
 		for (int i = 0; i < blackList.length; i++) {
 			if (blackList[i] != null && blackList[i].equals(str)) {
