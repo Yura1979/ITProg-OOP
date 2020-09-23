@@ -14,25 +14,60 @@ public class ArrayMain {
 		
 
 //		int arrayLength = 2_000_000;
-		int arrayLength = 50_000_000;
+		int arrayLength = 200_000_000;
 		
 		startTime = System.currentTimeMillis();
-		int[] array1 = generateArray(arrayLength);
+//		int[] array = generateArray(arrayLength);
+		int[] array = new int[arrayLength];
+		int parts = 32;
+		generateArrayInThreads(parts, array);
+
 		endTime = System.currentTimeMillis();
 		System.out.println("Array generation time: " + (endTime - startTime) / 1000 + "seconds");
 		
 		startTime = System.currentTimeMillis();	
-		ArraySum array1Sum = new ArraySum(array1);
+		ArraySum array1Sum = new ArraySum(array);
 		System.out.println(array1Sum.arraySum());
 		endTime = System.currentTimeMillis();
 		System.out.println("Total execution time: " + (endTime - startTime) + "ms");
 		
 //		Arrays.copyOfRange(original, from, to);
-		int parts = 4;
+		parts = 4;
 		startTime = System.currentTimeMillis();
-		System.out.println(calculateArraySumInThreads(parts, arrayLength, array1));
+		System.out.println(calculateArraySumInThreads(parts, arrayLength, array));
 		endTime = System.currentTimeMillis();
 		System.out.println("Total execution time with Threads: " + (endTime - startTime) + "ms");
+		
+		
+	}
+	
+	public static void generateArrayInThreads(int parts, int[] array) {
+		int arrayPart = array.length / parts;
+		
+		PopulateArray[] populateArray = new PopulateArray[parts];
+		Thread[] threads = new Thread[parts];
+		
+		int from = 0;
+		int to = arrayPart;
+		
+		for (int i = 0; i < threads.length; i++) {
+			populateArray[i] = new PopulateArray(from, to, array);
+			threads[i] = new Thread(populateArray[i]);
+			from += arrayPart;
+			to += arrayPart;
+		}
+		for (int i = 0; i < threads.length; i++) {
+			threads[i].start();
+		}
+		
+		for (int i = 0; i < threads.length; i++) {
+			try {
+				threads[i].join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		
 	}
