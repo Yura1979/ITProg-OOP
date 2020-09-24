@@ -22,7 +22,7 @@ public class TestStack {
 			System.out.println(myStack.pop());
 		}
 		System.out.println(myStack);
-		System.out.println(myStack.peack());
+		System.out.println(myStack.peek());
 		
 		blackList.addClass("Scanner");
 		myStack.push(sc);

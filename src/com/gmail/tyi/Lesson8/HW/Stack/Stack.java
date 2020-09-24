@@ -35,7 +35,7 @@ public class Stack {
 		return stack[headIndex--];
 	}
 	
-	public Object peack() {
+	public Object peek() {
 		if (isEmpty()) {
 			return null;
 		}

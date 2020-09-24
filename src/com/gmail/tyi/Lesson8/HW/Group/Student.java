@@ -5,6 +5,10 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Student extends Human implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int recordBookNum;
 	
 	

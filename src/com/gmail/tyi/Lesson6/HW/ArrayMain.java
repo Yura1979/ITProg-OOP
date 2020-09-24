@@ -14,7 +14,7 @@ public class ArrayMain {
 		
 
 //		int arrayLength = 2_000_000;
-		int arrayLength = 200_000_000;
+		int arrayLength = 2_000_000_000;
 		
 		startTime = System.currentTimeMillis();
 //		int[] array = generateArray(arrayLength);
